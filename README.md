@@ -1,4 +1,5 @@
 # パケット (paketto)
+[![Node.js Package](https://github.com/tufcode/paketto/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/tufcode/paketto/actions/workflows/npm-publish.yml)
 
 paketto (Japanese for "packet") is a small library for serializing and deserializing data in JavaScript.
 It is fast, lightweight and has no dependencies.
