@@ -2,6 +2,10 @@
 
 ## Table of contents
 
+### Classes
+
+- [PakettoInstance](classes/PakettoInstance.md)
+
 ### Type Aliases
 
 - [DeserializerFunction](API.md#deserializerfunction)
@@ -10,10 +14,6 @@
 ### Functions
 
 - [addBuiltInSerializers](API.md#addbuiltinserializers)
-- [addCustomSerializer](API.md#addcustomserializer)
-- [clearCustomSerializers](API.md#clearcustomserializers)
-- [debug\_printCustomSerializers](API.md#debug_printcustomserializers)
-- [deserialize](API.md#deserialize)
 - [deserializeBoolean](API.md#deserializeboolean)
 - [deserializeFloat32](API.md#deserializefloat32)
 - [deserializeFloat64](API.md#deserializefloat64)
@@ -24,8 +24,7 @@
 - [deserializeUInt16](API.md#deserializeuint16)
 - [deserializeUInt32](API.md#deserializeuint32)
 - [deserializeUInt8](API.md#deserializeuint8)
-- [removeCustomSerializer](API.md#removecustomserializer)
-- [serialize](API.md#serialize)
+- [paketto](API.md#paketto)
 - [serializeBoolean](API.md#serializeboolean)
 - [serializeFloat32](API.md#serializefloat32)
 - [serializeFloat64](API.md#serializefloat64)
@@ -71,7 +70,7 @@
 
 #### Defined in
 
-[DeserializerFunction.ts:1](https://github.com/tufcode/paketto/blob/39d09ba/src/DeserializerFunction.ts#L1)
+[DeserializerFunction.ts:1](https://github.com/tufcode/paketto/blob/05e1935/src/DeserializerFunction.ts#L1)
 
 ___
 
@@ -103,13 +102,13 @@ ___
 
 #### Defined in
 
-[SerializerFunction.ts:1](https://github.com/tufcode/paketto/blob/39d09ba/src/SerializerFunction.ts#L1)
+[SerializerFunction.ts:1](https://github.com/tufcode/paketto/blob/05e1935/src/SerializerFunction.ts#L1)
 
 ## Functions
 
 ### addBuiltInSerializers
 
-▸ **addBuiltInSerializers**(): `void`
+▸ **addBuiltInSerializers**(`instance`): `void`
 
 Registers built-in custom serializers.
 
@@ -120,36 +119,11 @@ Int32Array, Float32Array, Set, Map, Date
 Arrays or objects can be serialized if they contain only registered types
 or primitives.
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-[BuiltInSerializers.ts:34](https://github.com/tufcode/paketto/blob/39d09ba/src/BuiltInSerializers.ts#L34)
-
-___
-
-### addCustomSerializer
-
-▸ **addCustomSerializer**<`T`\>(`type`, `serialize`, `deserialize`, `typeId`): `void`
-
-Register a custom serializer for a type
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends (...`args`: `any`) => `any` |
-
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `type` | `T` | The type to register a serializer for |
-| `serialize` | [`SerializerFunction`](API.md#serializerfunction)<`InstanceType`<`T`\>\> | The serialize function |
-| `deserialize` | [`DeserializerFunction`](API.md#deserializerfunction)<`InstanceType`<`T`\>\> | The deserialize function |
-| `typeId` | `number` | The type ID to use for this type |
+| `instance` | [`PakettoInstance`](classes/PakettoInstance.md) | The Paketto instance to add the serializers to |
 
 #### Returns
 
@@ -157,67 +131,7 @@ Register a custom serializer for a type
 
 #### Defined in
 
-[Paketto.ts:258](https://github.com/tufcode/paketto/blob/39d09ba/src/Paketto.ts#L258)
-
-___
-
-### clearCustomSerializers
-
-▸ **clearCustomSerializers**(): `void`
-
-Removes all custom serializers
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[Paketto.ts:306](https://github.com/tufcode/paketto/blob/39d09ba/src/Paketto.ts#L306)
-
-___
-
-### debug\_printCustomSerializers
-
-▸ **debug_printCustomSerializers**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[Paketto.ts:32](https://github.com/tufcode/paketto/blob/39d09ba/src/Paketto.ts#L32)
-
-___
-
-### deserialize
-
-▸ **deserialize**(`buf`, `offset?`): `Object`
-
-Deserialize a value from an Uint8Array
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `buf` | `Uint8Array` | `undefined` | The buffer to deserialize from |
-| `offset` | `number` | `0` | The offset to start deserializing at |
-
-#### Returns
-
-`Object`
-
-The new offset and the deserialized value
-
-| Name | Type |
-| :------ | :------ |
-| `offset` | `number` |
-| `value` | `unknown` |
-
-#### Defined in
-
-[Paketto.ts:238](https://github.com/tufcode/paketto/blob/39d09ba/src/Paketto.ts#L238)
+[BuiltInSerializers.ts:31](https://github.com/tufcode/paketto/blob/05e1935/src/BuiltInSerializers.ts#L31)
 
 ___
 
@@ -243,7 +157,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:150](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L150)
+[PrimitiveSerializers.ts:150](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L150)
 
 ___
 
@@ -269,7 +183,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:91](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L91)
+[PrimitiveSerializers.ts:91](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L91)
 
 ___
 
@@ -295,7 +209,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:109](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L109)
+[PrimitiveSerializers.ts:109](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L109)
 
 ___
 
@@ -321,7 +235,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:42](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L42)
+[PrimitiveSerializers.ts:42](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L42)
 
 ___
 
@@ -347,7 +261,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:73](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L73)
+[PrimitiveSerializers.ts:73](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L73)
 
 ___
 
@@ -373,7 +287,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:17](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L17)
+[PrimitiveSerializers.ts:17](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L17)
 
 ___
 
@@ -399,7 +313,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:126](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L126)
+[PrimitiveSerializers.ts:126](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L126)
 
 ___
 
@@ -425,7 +339,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:31](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L31)
+[PrimitiveSerializers.ts:31](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L31)
 
 ___
 
@@ -451,7 +365,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:58](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L58)
+[PrimitiveSerializers.ts:58](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L58)
 
 ___
 
@@ -477,67 +391,21 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:6](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L6)
+[PrimitiveSerializers.ts:6](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L6)
 
 ___
 
-### removeCustomSerializer
+### paketto
 
-▸ **removeCustomSerializer**<`T`\>(`type`): `void`
-
-Removes custom serializer added for a type
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends (...`args`: `any`) => `any` |
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `T` | The type to remove the serializer for |
+▸ **paketto**(): [`PakettoInstance`](classes/PakettoInstance.md)
 
 #### Returns
 
-`void`
+[`PakettoInstance`](classes/PakettoInstance.md)
 
 #### Defined in
 
-[Paketto.ts:293](https://github.com/tufcode/paketto/blob/39d09ba/src/Paketto.ts#L293)
-
-___
-
-### serialize
-
-▸ **serialize**<`T`\>(`buf`, `value`, `offset?`): `number`
-
-Serialize a value into an Uint8Array
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends (...`args`: `any`) => `any` |
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `buf` | `Uint8Array` | `undefined` | The buffer to serialize into |
-| `value` | `InstanceType`<`T`\> | `undefined` | The value to serialize |
-| `offset` | `number` | `0` | The offset to start serializing at |
-
-#### Returns
-
-`number`
-
-The new offset
-
-#### Defined in
-
-[Paketto.ts:215](https://github.com/tufcode/paketto/blob/39d09ba/src/Paketto.ts#L215)
+[Paketto.ts:234](https://github.com/tufcode/paketto/blob/05e1935/src/Paketto.ts#L234)
 
 ___
 
@@ -559,7 +427,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:142](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L142)
+[PrimitiveSerializers.ts:142](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L142)
 
 ___
 
@@ -581,7 +449,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:81](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L81)
+[PrimitiveSerializers.ts:81](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L81)
 
 ___
 
@@ -603,7 +471,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:99](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L99)
+[PrimitiveSerializers.ts:99](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L99)
 
 ___
 
@@ -625,7 +493,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:38](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L38)
+[PrimitiveSerializers.ts:38](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L38)
 
 ___
 
@@ -647,7 +515,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:69](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L69)
+[PrimitiveSerializers.ts:69](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L69)
 
 ___
 
@@ -669,7 +537,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:13](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L13)
+[PrimitiveSerializers.ts:13](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L13)
 
 ___
 
@@ -691,7 +559,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:117](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L117)
+[PrimitiveSerializers.ts:117](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L117)
 
 ___
 
@@ -713,7 +581,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:25](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L25)
+[PrimitiveSerializers.ts:25](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L25)
 
 ___
 
@@ -735,7 +603,7 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:50](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L50)
+[PrimitiveSerializers.ts:50](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L50)
 
 ___
 
@@ -757,4 +625,4 @@ ___
 
 #### Defined in
 
-[PrimitiveSerializers.ts:1](https://github.com/tufcode/paketto/blob/39d09ba/src/PrimitiveSerializers.ts#L1)
+[PrimitiveSerializers.ts:1](https://github.com/tufcode/paketto/blob/05e1935/src/PrimitiveSerializers.ts#L1)
