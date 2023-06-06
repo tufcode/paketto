@@ -1,0 +1,17 @@
+export enum PrimitiveTypeIds {
+  UInt8 = 0,
+  UInt16 = 1,
+  UInt32 = 2,
+  Int8 = 3,
+  Int16 = 4,
+  Int32 = 5,
+  Float32 = 6,
+  String = 7,
+  Boolean = 8,
+  Null = 9,
+  Undefined = 10,
+  NaN = 11,
+  Infinity = 12,
+  NegativeInfinity = 13,
+  Object = 14,
+}

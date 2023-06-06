@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig/tsconfig.all.json",
+  "compilerOptions": {
+    "target": "es6",
+    "outDir": "lib",
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "inlineSources": true
+  }
+}

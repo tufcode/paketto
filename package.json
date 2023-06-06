@@ -1,0 +1,66 @@
+{
+  "name": "paketto",
+  "version": "0.0.1",
+  "author": "Tufan Meriç Uyguner",
+  "license": "MIT",
+  "keywords": [
+    "serialization",
+    "deserialization",
+    "msgpack",
+    "serializer",
+    "deserializer",
+    "networking"
+  ],
+  "description": "A fast and lightweight serializer and deserializer for Node.js and the browser.",
+  "browser": "dist/paketto.js",
+  "main": "build/cjs/index.js",
+  "module": "build/esm/index.mjs",
+  "typings": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "browser": "./dist/paketto.js",
+      "import": "./build/esm/index.mjs",
+      "require": "./build/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "build",
+    "lib",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "package.json"
+  ],
+  "scripts": {
+    "semantic-release": "semantic-release",
+    "build:rollup": "rollup -c rollup.config.js --bundleConfigAsCjs",
+    "build:types": "dts-bundle-generator -o dist/paketto.d.ts src/index.ts",
+    "build": "tsc && yarn build:rollup && yarn build:types && yarn typedoc"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@types/node": "^16.4.6",
+    "dts-bundle-generator": "^8.0.1",
+    "jsdoc-to-markdown": "^8.0.0",
+    "rollup": "^3.20.3",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.4",
+    "typedoc-plugin-markdown": "^3.15.1",
+    "typescript": "^5.0.3"
+  },
+  "packageManager": "yarn@3.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tufcode/paketto.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "tslib": "^2.5.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  // Comments are supported, like tsconfig.json
+  "out": ".",
+  "excludeInternal": true,
+  "readme": "none",
+  "name": "API Docs for paketto",
+  "cleanOutputDir": false,
+  "entryPoints": ["src/index.ts"],
+  "plugin": ["typedoc-plugin-markdown"],
+  "githubPages": false,
+  "entryDocument": "API.md",
+  "hideBreadcrumbs": true
+}
