@@ -1,4 +1,3 @@
-## This package is a work in progress and is not ready for use yet. Anything written here might be outdated.
 # パケット (paketto)
 
 paketto (Japanese for "packet") is a small library for serializing and deserializing data in JavaScript.

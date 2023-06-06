@@ -30,11 +30,9 @@
     "lib",
     "LICENSE",
     "README.md",
-    "CHANGELOG.md",
     "package.json"
   ],
   "scripts": {
-    "semantic-release": "semantic-release",
     "build:rollup": "rollup -c rollup.config.js --bundleConfigAsCjs",
     "build:types": "dts-bundle-generator -o dist/paketto.d.ts src/index.ts",
     "build": "tsc && yarn build:rollup && yarn build:types && yarn typedoc"
