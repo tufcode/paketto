@@ -1,6 +1,6 @@
 {
   "name": "paketto",
-  "version": "1.0.1-release",
+  "version": "1.0.2-release",
   "author": "Tufan Meriç Uyguner",
   "license": "MIT",
   "keywords": [
@@ -18,9 +18,18 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": {
-      "browser": "./dist/paketto.js",
-      "import": "./build/esm/index.mjs",
-      "require": "./build/cjs/index.js"
+      "browser": {
+        "default": "./dist/paketto.js",
+        "types": "./dist/paketto.d.ts"
+      },
+      "import": {
+        "default": "./build/esm/index.mjs",
+        "types": "./lib/index.d.ts"
+      },
+      "require": {
+        "default": "./build/cjs/index.js",
+        "types": "./lib/index.d.ts"
+      }
     },
     "./package.json": "./package.json"
   },
